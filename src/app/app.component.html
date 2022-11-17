@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Hijri Gregorian Datepicker!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
+<form name="myform" #form="ngForm">
+
+<div class="no-gutters">
+
+  <div class="col-10 col-lg-5 offset-1 offset-lg-4 ">
+
+    <hijri-gregorian-datepicker [placeHolder]="'سنة/شهر/يوم'"
+                                [label]="'Date'"
+                                [(selectedDate)]="date"
+                                [isRequired]="true"
+                                [GregLabel]="'ميلادي'"
+                                [hijriLabel] ="'هجري'"
+                                [selectedDateType]="selectedDateType"
+                                [disabled]="isDisabled"
+                                [readonly]="isReadOnly"
+                                #datePicker>
+    </hijri-gregorian-datepicker>
+
+    <button type="button" class="btn btn-sm btn-dark mr-1 mt-3" (click)="setCurrentGreg()" >Current Gregorian</button>
+    <button type="button" class="btn btn-sm btn-dark mr-1 mt-3" (click)="setHijri()" >Current Hijri</button>
+
+    <button type="button" class="btn btn-sm btn-secondary mr-1 mt-3" (click)="makeDisabled()" >Disabled</button>
+    <button type="button" class="btn btn-sm btn-primary  mr-1 mt-3" (click)="makeReadonly()">ReadOnly</button>
+
+    <button type="button" class="btn btn-sm btn-info mr-2 mt-3" (click)="getDate()" [disabled]="form.invalid">Get Date</button>
+
+    <br />    <br />
+    <div class="font-weight-bold"> {{dateString}} </div>
+
+    <hr/>
+    <pre>Model: {{ date | json }}</pre>
+
+  </div>
+
+</div>
+
+
+
+</form>
+
+
+
+<router-outlet></router-outlet>
